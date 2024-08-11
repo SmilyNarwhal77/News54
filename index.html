@@ -9,22 +9,23 @@
         font-family: cursive;
         color: red;
         text-align: center;
-        font-size: 64px;
-        padding: 2%;
-        height: 4%
+        font-size: 36px;
+        padding: 1%;
+        height: 40px
       }
       nav {
         float: left;
-        height: 80%;
+        height: 100%;
         width: 10%;
-        top: 4%;
+        top: 40px;
         left: 0px
       }
       ul {
         background-color: black;
         list-style-type: none;
-        margin: 0;
-        width: 100%
+        margin: 0 auto;
+        width: 10%;
+        height: 100%;
       }
       li {
         color: white;
@@ -53,13 +54,13 @@
     </header>
     <nav>
       <ul>
-        <li onclick="home()" class="current">
+        <li onclick="home()" class="current" id="home">
           Home
         </li>
-        <li onclick="issues()">
+        <li onclick="issues()" id="issues">
           Issues
         </li>
-        <li onclick="about()">
+        <li onclick="about()" id="about">
           About Us
         </li>
       </ul>
@@ -72,5 +73,46 @@
         Proudly brought to you by News 54!!
       </h3>
     </main>
+    <script>
+      var currentpart = "home";
+      var homepart = document.querySelector("#home");
+      var issuespart = document.querySelector("issues");
+      var aboutpart = document.querySelector("about");
+      var main = document.querySelector("main");
+      function home() {
+        if (currentpart === "home") {
+          break;
+        } else if ( currentpart === "issues" ) {
+          issuespart.classList.remove("current");
+          homepart.classList.add("current");
+          main.innerHTML = `<main>
+      <h2>
+        The <em>Latest</em> <del>good</del> <ins>AWESOME</ins> News!
+      </h2>
+      <h3>
+        Proudly brought to you by News 54!!
+      </h3>
+    </main>` 
+        };
+        currentpart = "home"
+      };
+      function issues() {
+        if (currentpart === "issues") {
+          break;
+        } else if ( currentpart === "home" ) {
+          homepart.classList.remove("current");
+          issuespart.classList.add("current");
+          main.innerHTML = `<main>
+      <h2>
+        The <em>Latest</em> <del>good</del> <ins>AWESOME</ins> News!
+      </h2>
+      <h3>
+        Our Issues
+      </h3>
+    </main>` 
+        };
+        currentpart = "issues"
+      };
+    </script>
   </body>
 </html>
